@@ -54,7 +54,7 @@ void Cola<tipo>::desencolar(){
 
 template<typename tipo>
 tipo Cola<tipo>::frente(){
-    //Codigo para optener el elemento siguiente sin desencolar
+    //Codigo para obtener el elemento siguiente sin desencolar
 }
 
 template<typename tipo>
