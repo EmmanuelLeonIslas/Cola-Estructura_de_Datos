@@ -48,7 +48,15 @@ bool Cola<tipo>::llena(){
 
 template<typename tipo>
 void Cola<tipo>::encolar(tipo elemento){
-    //Codigo para encolar un elemento
+    if(this->llena()){
+        throw invalid_argument("Cola llena");
+    }
+
+    if(++fin == CAPACIDAD){
+        fin = 0;
+    }
+
+    elementos[fin] = elemento;
 }
 
 template<typename tipo>
