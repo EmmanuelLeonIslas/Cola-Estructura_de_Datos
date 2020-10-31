@@ -30,7 +30,11 @@ class Cola{
 
 template<typename tipo>
 bool Cola<tipo>::vacia(){
-    //Codigo para verificar si la cola esta vacia
+    if(inicio == fin + 1 || (inicio == 0 && fin == CAPACIDAD - 1)){
+        return true;
+    }
+
+    return false;
 }
 
 template<typename tipo>
