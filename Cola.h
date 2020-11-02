@@ -72,7 +72,26 @@ tipo Cola<tipo>::frente(){
 template<typename tipo>
 void Cola<tipo>::recorrer()
 {
-    
+    if(this->vacia()){
+        cout << "La cola esta actualmente vacia";
+    }
+    else{
+        if(inicio > fin){
+            for(size_t i(inicio); i < CAPACIDAD; i++){
+                cout << elementos[i] << ", ";
+            }
+
+            for(size_t i(0); i <= fin; i++){
+                cout << elementos[i] << ", ";
+            }
+        }
+        else{
+            for(size_t i(inicio); i <= fin; i++){
+                cout << elementos[i] << ", ";
+            }
+        }
+    }
+    cout << endl;
 }
 
 
