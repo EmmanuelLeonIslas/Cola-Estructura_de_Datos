@@ -66,7 +66,11 @@ void Cola<tipo>::desencolar(){
 
 template<typename tipo>
 tipo Cola<tipo>::frente(){
-    //Codigo para obtener el elemento siguiente sin desencolar
+    if(this->vacia()){
+        throw invalid_argument("Cola vacia");
+    }
+
+    return elementos[inicio];
 }
 
 template<typename tipo>
