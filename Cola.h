@@ -61,7 +61,13 @@ void Cola<tipo>::encolar(tipo elemento){
 
 template<typename tipo>
 void Cola<tipo>::desencolar(){
-    //Codigo para desencolar el elemento siguiente
+    if(this->vacia()){
+        throw invalid_argument("Cola vacia");
+    }
+
+    if(++inicio == CAPACIDAD){
+        inicio = 0;
+    }
 }
 
 template<typename tipo>
