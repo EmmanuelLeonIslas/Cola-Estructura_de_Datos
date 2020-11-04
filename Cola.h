@@ -30,7 +30,11 @@ class Cola{
 
 template<typename tipo>
 bool Cola<tipo>::vacia(){
-    //Codigo para verificar si la cola esta vacia
+    if(inicio == fin + 1 || (inicio == 0 && fin == CAPACIDAD - 1)){
+        return true;
+    }
+
+    return false;
 }
 
 template<typename tipo>
@@ -44,23 +48,60 @@ bool Cola<tipo>::llena(){
 
 template<typename tipo>
 void Cola<tipo>::encolar(tipo elemento){
-    //Codigo para encolar un elemento
+    if(this->llena()){
+        throw invalid_argument("Cola llena");
+    }
+
+    if(++fin == CAPACIDAD){
+        fin = 0;
+    }
+
+    elementos[fin] = elemento;
 }
 
 template<typename tipo>
 void Cola<tipo>::desencolar(){
-    //Codigo para desencolar el elemento siguiente
+    if(this->vacia()){
+        throw invalid_argument("Cola vacia");
+    }
+
+    if(++inicio == CAPACIDAD){
+        inicio = 0;
+    }
 }
 
 template<typename tipo>
 tipo Cola<tipo>::frente(){
-    //Codigo para obtener el elemento siguiente sin desencolar
+    if(this->vacia()){
+        throw invalid_argument("Cola vacia");
+    }
+
+    return elementos[inicio];
 }
 
 template<typename tipo>
 void Cola<tipo>::recorrer()
 {
-    //Codigo para recorrer la cola
+    if(this->vacia()){
+        cout << "La cola esta actualmente vacia";
+    }
+    else{
+        if(inicio > fin){
+            for(size_t i(inicio); i < CAPACIDAD; i++){
+                cout << elementos[i] << ", ";
+            }
+
+            for(size_t i(0); i <= fin; i++){
+                cout << elementos[i] << ", ";
+            }
+        }
+        else{
+            for(size_t i(inicio); i <= fin; i++){
+                cout << elementos[i] << ", ";
+            }
+        }
+    }
+    cout << endl;
 }
 
 
